@@ -1,9 +1,8 @@
-const mongoose = require('mongoose')
-
-const Article = new mongoose.Schema({
-    headline: String, 
-    sum: String ,
-    url: String 
-})
-
-module.exports = mongoose.model('Article', Article)
+module.exports = (Schema, model) => {
+    const Article = new Schema ({
+        headline: String, 
+        summary: String ,
+        url: String 
+    })
+    return model('Article', Article)
+}

@@ -6,6 +6,9 @@ app.use(express.static(__dirname + "public"))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+// routes
+require('./Routes')(app)
+
 // mongoose 
 require('mongoose').connect('mongodb://localhost/articles_db' ,{
     useNewUrlParser:true, useCreateIndex:true, useFindAndModify:true })
