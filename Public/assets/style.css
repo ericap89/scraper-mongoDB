@@ -1,0 +1,56 @@
+.jumbotron {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    padding: 0;
+    box-shadow: 10px 5px 20px 2px rgb(75, 76, 77);
+  }
+
+  .jumbotron .overlay {
+    position: absolute;
+    z-index: auto;
+    background: linear-gradient(#333, black);
+    opacity: 0.3;
+  }
+
+  .jumbotron .image {
+    height: 100%;
+    background-image: url("./media/martin-knize-1iHpSdiZyFA-unsplash.jpg");
+    background-size: cover;
+  }
+
+
+.jumbotron .header {
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    text-align: center;
+  }
+  
+.jumbotron .header h1,
+.jumbotron .header p {
+    color: white;
+}
+
+  
+.jumbotron h1 {
+    font-size: 70px;
+    font-weight: 600px;
+}
+  
+.jumbotron p {
+    font-size: 30px;
+}
+
+footer {
+      background: black;
+      height:50px;
+      color:white;
+      box-shadow: 10px 5px 20px 2px rgb(75, 76, 77);
+}
+ 
+.footer-title {
+    padding-top:10px;
+    font-size:18px;
+    font-weight:bold;
+}
