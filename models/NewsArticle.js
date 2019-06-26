@@ -6,3 +6,4 @@ module.exports = (Schema, model) => {
     })
     return model('Article', Article)
 }
+

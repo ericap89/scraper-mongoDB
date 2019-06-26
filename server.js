@@ -3,6 +3,8 @@ const app = express()
 const axios = require('axios')
 const cheerio = require('cheerio')
 
+const db = require('./models/index')
+
 //middlware
 app.use(express.static(__dirname + "public"))
 app.use(express.urlencoded({ extended: true }))
@@ -17,16 +19,20 @@ require('mongoose').connect('mongodb://localhost/articles_db' ,{
 .then(_ => app.listen(3000))
 .catch(err => console.log(err))
 
-// axios request 
+// axios request for LATimes
 axios.get('https://www.latimes.com/sports/')
 .then(({ data }) => {
     const $ = cheerio.load(data)
+    const articleArr = []
     $('div.card-content').each((i, elem) => {
-        console.log($(elem).text())
-        
-      console.log($(elem).attr('href'))
+        articleArr.push({
+            headline: $(elem).children('h3').attr('href'),
 
-      console.log($(elem).children('p.preview-text').text())
+            summary: $(elem).children('p.preview-text').text()
+        })
+      
     })
+    db.Article.create(articleArr, _ => console.log('added!'))
 })
 .catch(err => console.log(err))
+
